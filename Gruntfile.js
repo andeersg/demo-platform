@@ -9,6 +9,7 @@ module.exports = function(grunt) {
         expand: true,
         layout: 'src/layouts/default.hbs',
         assets: 'dist/assets',
+        data: 'config.json'
       },
       root: {
         files: [
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      all: ['dist/*.html', 'dist/assets/js/*.js', 'dist/assets/css/*.css'],
+      all: ['dist'],
       main: ['dist/*.html']
     },
     concat: {
