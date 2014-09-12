@@ -1,0 +1,62 @@
+---
+title: elementQuery
+jquery: 2.1.0
+article: http://example.com
+custom_style: demo
+---
+
+<div class="demo-page">
+  <h2>Element queries</h2>
+
+  <!-- Place example element here, add some way to easily adjust wrapper size.da -->
+  <div class="demo-wrapper">
+    <div class="info mod mod-info">
+      <ul class="info__lang list1">
+        <li>Javascript</li>
+        <li>SCSS</li>
+        <li>Node.JS</li>
+        <li>PHP</li>
+      </ul>
+      <p class="info__text">
+        Anders is a guy living in Norway, who likes to code.<br>
+        He works at NyMedia, where he works with Drupal.<br>
+        But when he comes home he work with WordPress and Node.js.<br>
+        The end!
+      </p>
+      <figure class="info__image">
+        <img src="anders.png">
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+/*
+  An element query experiment by @scottjehl
+*/
+(function( w ){
+
+	function updateModAttributes(){
+		var mods = w.document.querySelectorAll( ".mod" );
+		for( var m = 0; m < mods.length; m++ ){
+			var mod = mods[ m ],
+				breakpoints = w.getComputedStyle( mod, ":before" ).getPropertyValue( "content" ),
+				widths = breakpoints.replace(/[^\d ]/g,"").split( " "),
+				modWidth = mod.clientWidth,
+				minWidths = [];
+
+			for( var i = 0; i < widths.length; i++ ){
+				if( parseFloat( widths[ i ] ) <= modWidth ){
+					minWidths.push( widths[ i ] );
+				}
+			}
+			mod.setAttribute( "data-minwidth", minWidths.join( " " ) );
+		}
+	}
+
+	w.addEventListener( "load", updateModAttributes, false );
+	w.addEventListener( "resize", updateModAttributes, false );
+
+})( this );
+</script>

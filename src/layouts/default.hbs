@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="{{assets}}/css/style.css" type="text/css">
+  {{#if custom_style}}
+  <link rel="stylesheet" href="{{custom_style}}.css" type="text/css"><!-- {{assets}}/css/ -->
+  {{/if}}
+  {{#if jquery}}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/{{jquery}}/jquery.min.js"></script>
+  {{/if}}
+</head>
+
+<body>
+  <header class="demo-site-header">
+    {{#if article}}<a class="back-to-the-article" href="{{article}}">Back to the article</a>{{/if}}
+    <h2>{{title}}</h2>
+  </header>
+
+    {{> body }}
+
+</body>
+</html>

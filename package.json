@@ -1,0 +1,22 @@
+{
+  "name": "Patterns",
+  "description": "Create a styleguide",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": {
+    "name": "Anders",
+    "email": "anders.2205@gmail.com"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.5.0",
+    "assemble": "~0.4.3",
+    "grunt": "~0.4.1",
+    "yaml-front-matter": "~3.0.1",
+    "glob": "~3.2.9",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-copy": "^0.5.0"
+  }
+}

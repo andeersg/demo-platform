@@ -1,0 +1,53 @@
+body {
+  background-color: #8CDCDA;
+}
+
+.demo-wrapper {
+ /*
+ width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+*/
+}
+
+.info {
+  border: 4px solid #c7c7c7;
+}
+.info__lang {
+  width: 30%;
+}
+.info__text {
+  width: 30%;
+}
+.info__image {
+  width: 30%;
+}
+
+
+
+/*
+ The media query part.
+*/
+.mod:before {
+   display: none;
+}
+
+/* set up some element query breakpoints for mod-foo */
+.mod-info:before {
+  content: "300 410 700";
+}
+.mod-info {
+  background: green;
+  color: #fff;
+  padding: 20px;
+}
+.mod-info[data-minwidth~="300"] {
+  background: blue;
+}
+.mod-info[data-minwidth~="410"] {
+  background: red;
+}
+.mod-info[data-minwidth~="700"] {
+  background: gray;
+}
