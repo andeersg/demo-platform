@@ -1,43 +1,52 @@
 ---
-title: elementQuery
-jquery: 2.1.0
+title: Element Queries
 article: http://example.com
+jquery: 2.1.0
 custom_style: demo
 ---
 
-<div class="demo-page">
-  <h2>Element queries</h2>
 
-  <!-- Place example element here, add some way to easily adjust wrapper size.da -->
-  <div class="demo-wrapper">
-    <div class="info mod mod-info">
-      <ul class="info__lang list1">
-        <li>Javascript</li>
-        <li>SCSS</li>
-        <li>Node.JS</li>
-        <li>PHP</li>
-      </ul>
-      <p class="info__text">
-        Anders is a guy living in Norway, who likes to code.<br>
-        He works at NyMedia, where he works with Drupal.<br>
-        But when he comes home he work with WordPress and Node.js.<br>
-        The end!
-      </p>
-      <figure class="info__image">
-        <img src="anders.png">
-      </figure>
-    </div>
-  </div>
-</div>
+<section class="wrapper" style="width: 500px;">{{> testimonial}}</section>
+
+<hr class="seperator">
+
+<section class="wrapper" style="width: 300px;">{{> testimonial}}</section>
+
+<hr class="seperator">
+
+<ul class="controls radio">
+  <li><input id="radio1" type="radio" name="width" value="200"><label for="radio1">200</label></li>
+  <li><input id="radio2" type="radio" name="width" value="500" checked="checked"><label for="radio2">500</label></li>
+  <li><input id="radio3" type="radio" name="width" value="700"><label for="radio3">700</label></li>
+</ul>
+<section id="variable-width" class="wrapper" style="width: 500px;">
+  {{> testimonial}}
+</section>
 
 
+
+<script type="text/javascript">
+(function($){
+  $('.controls.radio input').change(function() {
+    $('#variable-width').width(this.value);
+    if (document.createEvent) {
+      var e = document.createEvent('HTMLEvents');
+      e.initEvent('resize', true, false);
+      document.body.dispatchEvent(e);
+    } else if (document.createEventObject) {
+      document.body.fireEvent('onresize');
+    }
+  });
+})(jQuery);  
+
+</script>
 <script type="text/javascript">
 /*
   An element query experiment by @scottjehl
 */
 (function( w ){
-
-	function updateModAttributes(){
+console.log(w);
+	function updateModAttributes(){console.log('Do you trigger?');
 		var mods = w.document.querySelectorAll( ".mod" );
 		for( var m = 0; m < mods.length; m++ ){
 			var mod = mods[ m ],
@@ -57,6 +66,5 @@ custom_style: demo
 
 	w.addEventListener( "load", updateModAttributes, false );
 	w.addEventListener( "resize", updateModAttributes, false );
-
 })( this );
 </script>

@@ -28,11 +28,26 @@
 
 <body>
   <header class="demo-site-header">
-    {{#if article}}<a class="back-to-the-article" href="{{article}}">Back to the article</a>{{/if}}
-    <h2>{{title}}</h2>
+    {{#if article}}<div class="demo-top-bar"><a class="back-to-the-article" href="{{article}}">Back to the article</a></div>{{/if}}
+    <h2 class="demo-title">{{title}}</h2>
   </header>
 
     {{> body }}
 
+  {{#if related}} 
+    <section class="demo-related">
+      {{#each related}}
+        <a>{{.}}</a>
+      {{/each}}
+    </section>
+  {{/if}}
+
+  <footer class="demo-site-footer">
+    <ul class="demo-links">
+      <li><a href="http://andeers.com">Andeers.com</a></li>
+      <li><a href="">My stuff at Github</a></li>
+      <li><a href="">@andeersg</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

@@ -8,6 +8,7 @@ module.exports = function(grunt) {
         flatten: false,
         expand: true,
         layout: 'src/layouts/default.hbs',
+        partials: ['src/partials/*.hbs'],
         assets: 'dist/assets',
         data: 'config.json'
       },

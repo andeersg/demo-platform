@@ -1,30 +1,66 @@
-body {
-  background-color: #8CDCDA;
+.preview {
+  margin-bottom: 50px;
 }
-
-.demo-wrapper {
- /*
- width: 600px;
+.wrapper {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
-*/
+}
+.seperator {
+  height: 1px;
+  background-color: #555;
+  margin: 50px auto 50px auto;
+  max-width: 500px;
+  width: 100%;
 }
 
-.info {
-  border: 4px solid #c7c7c7;
-}
-.info__lang {
-  width: 30%;
-}
-.info__text {
-  width: 30%;
-}
-.info__image {
-  width: 30%;
+.highlight {
+  border: 2px dashed #555;
+  border-radius: 5px;
 }
 
+.testimonial {
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
+.testimonial__text {
+  font-weight: 300;
+  color: #555;
+  text-align: center;
+  font-size: 16px;
+}
+.testimonial__text:before,
+.testimonial__text:after {
+  content: '"';
+}
+
+.testimonial__meta {
+  text-align: center;
+}
+.testimonial__meta .company {
+  display: none;
+}
+.testimonial__meta img {
+  max-width: 50px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.testimonial__image {
+  width: 50px;
+  display: inline-block;
+}
+.testimonial__author {
+  display: inline-block;
+  vertical-align: top;
+}
+.testimonial__author h3 {
+  font-size: 18px;
+  color: #555;
+  font-weight: 300;
+  margin: 5px 0 0 0;
+}
 
 /*
  The media query part.
@@ -34,20 +70,26 @@ body {
 }
 
 /* set up some element query breakpoints for mod-foo */
-.mod-info:before {
-  content: "300 410 700";
+.mod-testimonial:before {
+  content: "300 500";
 }
-.mod-info {
-  background: green;
-  color: #fff;
-  padding: 20px;
+.mod-testimonial[data-minwidth~="500"] .testimonial__text {
+  font-size: 35px;
 }
-.mod-info[data-minwidth~="300"] {
-  background: blue;
+.mod-testimonial[data-minwidth~="500"] .testimonial__image {
+  max-width: 70px;
 }
-.mod-info[data-minwidth~="410"] {
-  background: red;
+.mod-testimonial[data-minwidth~="500"] .testimonial__image img {
+  max-width: 70px;
 }
-.mod-info[data-minwidth~="700"] {
-  background: gray;
+.mod-testimonial[data-minwidth~="500"] .testimonial__author h3 {
+  margin: 15px 0 0 0;
 }
+
+.mod-testimonial[data-minwidth~="300"] .testimonial__meta .company {
+  display: block;
+}
+
+
+
+
