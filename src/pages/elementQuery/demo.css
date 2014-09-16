@@ -59,7 +59,7 @@
   font-size: 18px;
   color: #555;
   font-weight: 300;
-  margin: 5px 0 0 0;
+  margin: 15px 0 0 0;
 }
 
 /*
@@ -71,10 +71,13 @@
 
 /* set up some element query breakpoints for mod-foo */
 .mod-testimonial:before {
-  content: "300 500";
+  content: "300 500 700";
+}
+.mod-testimonial[data-minwidth~="300"] .testimonial__meta .company {
+  display: block;
 }
 .mod-testimonial[data-minwidth~="500"] .testimonial__text {
-  font-size: 35px;
+  font-size: 27px;
 }
 .mod-testimonial[data-minwidth~="500"] .testimonial__image {
   max-width: 70px;
@@ -85,11 +88,9 @@
 .mod-testimonial[data-minwidth~="500"] .testimonial__author h3 {
   margin: 15px 0 0 0;
 }
-
-.mod-testimonial[data-minwidth~="300"] .testimonial__meta .company {
-  display: block;
+.mod-testimonial[data-minwidth~="700"] .testimonial__text {
+  font-size: 35px;
 }
-
 
 
 

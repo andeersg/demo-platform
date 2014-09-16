@@ -73,6 +73,18 @@ module.exports = function(grunt) {
         }
       }
     },
+    prettify: {
+      options: {
+        indent: 2,
+        wrap_line_length: 78,
+        brace_style: 'expand',
+      },
+      all: {
+        files: [
+          {expand: true, cwd: 'dist/', src: ['**/*.html'], dest: 'dist/', ext: '.html'}
+        ]
+      }
+    },
     watch: {
       options: {
         atBegin: true
@@ -100,7 +112,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-prettify');
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean:all', 'compass', 'concat', 'assemble', 'copy']);
+  grunt.registerTask('default', ['clean:all', 'compass', 'concat', 'assemble', 'copy', 'prettify']);
 };

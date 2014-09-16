@@ -95,6 +95,11 @@ $pad: 20px;
     padding-right: $pad;
   }
 }
+.group:after {
+  clear: both;
+  display: table;
+  content: '';
+}
 
 
 @import 'modules/form';
