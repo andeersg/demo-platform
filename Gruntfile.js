@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         expand: true,
         layout: 'src/layouts/default.hbs',
         partials: ['src/partials/*.hbs'],
-        assets: '../demo/assets',
+        assets: 'dist/assets',
         data: 'config.json'
       },
       root: {
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           {expand: true,
           cwd: 'src/pages/',
           src: '**/*.hbs',
-          dest: '../demo/',
+          dest: 'dist/',
           ext: '.html'
         }]
       }
@@ -25,13 +25,13 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [ 
-          {expand: true, cwd: 'src/pages/', src: ['**', '!**/*.hbs'], dest: '../demo/', filter: 'isFile'}
+          {expand: true, cwd: 'src/pages/', src: ['**', '!**/*.hbs'], dest: 'dist/', filter: 'isFile'}
         ]
       }
     },
     clean: {
-      all: ['../demo'],
-      main: ['../demo/*.html']
+      all: ['dist'],
+      main: ['dist/*.html']
     },
     concat: {
       options: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['src/assets/js/*.js', 'src/assets/js/lib/*.js'],
-        dest: '../demo/assets/js/patterns.js'
+        dest: 'dist/assets/js/patterns.js'
       }
     },
     uglify: {
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '../demo/assets/js/patterns.min.js': ['<%= concat.dist.dest %>']
+          'dist/assets/js/patterns.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           sassDir: 'src/assets/scss',
-          cssDir: '../demo/assets/css',
+          cssDir: 'dist/assets/css',
           outputStyle: 'expanded'
         }
       }
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       },
       all: {
         files: [
-          {expand: true, cwd: '../demo/', src: ['**/*.html'], dest: '../demo/', ext: '.html'}
+          {expand: true, cwd: 'dist/', src: ['**/*.html'], dest: 'dist/', ext: '.html'}
         ]
       }
     },
@@ -115,5 +115,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-prettify');
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['compass', 'concat', 'assemble', 'copy', 'prettify']);
+  grunt.registerTask('default', ['clean:all', 'compass', 'concat', 'assemble', 'copy', 'prettify']);
 };
