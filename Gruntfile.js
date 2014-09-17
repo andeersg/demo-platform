@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           {expand: true,
           cwd: 'src/pages/',
           src: '**/*.hbs',
-          dest: 'demo/',
+          dest: '../demo/',
           ext: '.html'
         }]
       }
@@ -115,5 +115,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-prettify');
 
   // Default tasks to be run.
-  grunt.registerTask('default', ['clean:all', 'compass', 'concat', 'assemble', 'copy', 'prettify']);
+  grunt.registerTask('default', ['compass', 'concat', 'assemble', 'copy', 'prettify']);
 };
