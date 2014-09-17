@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         expand: true,
         layout: 'src/layouts/default.hbs',
         partials: ['src/partials/*.hbs'],
-        assets: 'dist/assets',
+        assets: '../demo/assets',
         data: 'config.json'
       },
       root: {
@@ -25,13 +25,13 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [ 
-          {expand: true, cwd: 'src/pages/', src: ['**', '!**/*.hbs'], dest: 'dist/', filter: 'isFile'}
+          {expand: true, cwd: 'src/pages/', src: ['**', '!**/*.hbs'], dest: '../demo/', filter: 'isFile'}
         ]
       }
     },
     clean: {
-      all: ['dist'],
-      main: ['dist/*.html']
+      all: ['../demo'],
+      main: ['../demo/*.html']
     },
     concat: {
       options: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['src/assets/js/*.js', 'src/assets/js/lib/*.js'],
-        dest: 'dist/assets/js/patterns.js'
+        dest: '../demo/assets/js/patterns.js'
       }
     },
     uglify: {
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/assets/js/patterns.min.js': ['<%= concat.dist.dest %>']
+          '../demo/assets/js/patterns.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           sassDir: 'src/assets/scss',
-          cssDir: 'dist/assets/css',
+          cssDir: '../demo/assets/css',
           outputStyle: 'expanded'
         }
       }
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       },
       all: {
         files: [
-          {expand: true, cwd: 'dist/', src: ['**/*.html'], dest: 'dist/', ext: '.html'}
+          {expand: true, cwd: '../demo/', src: ['**/*.html'], dest: '../demo/', ext: '.html'}
         ]
       }
     },
